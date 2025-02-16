@@ -1,19 +1,24 @@
+
 #include "Card.h"
 #include <iostream>
 #include <string>
 
 using namespace std;
 
-string suit;
-string rank;
-int value;
+string Card::getSuit() { 
+    return this->suit; 
+}
 
-string getSuit() { return suit; }
-string getRank() { return rank; }
-int getValue() { return value; }
+string Card::getRank() { 
+    return this->rank; 
+}
 
-Card(string s, string r, int v) {
-  suit = s;
-  rank = r;
-  value = v;
-};
+int Card::getValue() { 
+    return this->value; 
+}
+
+Card::Card(string s, string r, int v) {
+    suit = s;
+    rank = r;
+    value = v;
+}
