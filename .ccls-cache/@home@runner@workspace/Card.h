@@ -11,6 +11,7 @@ private:
   int value;
 
 public:
+  Card(string s, string r, int v);
   string getSuit();
   string getRank();
   int getValue();
