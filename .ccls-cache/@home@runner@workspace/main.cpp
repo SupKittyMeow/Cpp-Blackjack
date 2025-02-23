@@ -1,6 +1,4 @@
-#include "Card.cpp"
 #include "Card.h"
-#include "Deck.cpp"
 #include "Deck.h"
 
 #include <iostream>
