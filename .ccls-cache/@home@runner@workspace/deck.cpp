@@ -1,14 +1,17 @@
+
 #include "Deck.h"
 #include <iostream>
 #include <vector>
 
 using namespace std;
 
-vector<Card> cards;
+Deck::Deck(vector<Card> c) { cards = c; }
 
-Deck(vector<Card> c) {
-  cards = c;
-};
+void Deck::shuffle() {
+  // Implementation needed
+}
 
-void shuffle();
-Card dealCard();
+Card Deck::dealCard() {
+  // Implementation needed
+  return cards[0]; // Temporary return statement
+}

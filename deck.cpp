@@ -5,9 +5,7 @@
 
 using namespace std;
 
-Deck::Deck(vector<Card> c) {
-  cards = c;
-}
+Deck::Deck(vector<Card> c) { cards = c; }
 
 void Deck::shuffle() {
   // Implementation needed
