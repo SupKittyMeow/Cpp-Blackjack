@@ -1,6 +1,9 @@
 #include "Deck.h"
+#include <algorithm>
 #include <iostream>
+#include <random>
 #include <string>
+#include <time.h>
 #include <vector>
 
 using namespace std;
@@ -25,12 +28,16 @@ void Deck::createDeck() {
 }
 
 void Deck::shuffle() {
-  // Implementation needed
+  srand(time(0));
+  auto rng = std::default_random_engine{};
+  std::shuffle(cards.begin(), cards.end(), rng);
 }
 
 Card Deck::dealCard() {
-  // Implementation needed
-  return cards[0]; // Temporary return statement
+  // TODO: check if deck is empty
+  Card cardToDeal = cards[cards.size() - 1];
+  cards.pop_back();
+  return cardToDeal;
 }
 
 void Deck::printAllCards() {

@@ -8,5 +8,6 @@ using namespace std;
 
 int main() {
   Deck deck = Deck();
-  deck.printAllCards();
+  deck.shuffle();
+  cout << deck.dealCard().toString();
 }
