@@ -10,7 +10,7 @@ Card::Card(string s, string r, int v) {
   value = v;
 }
 
-string Card::toString() { return rank + " of " + rank; }
+string Card::toString() { return rank + " of " + suit; }
 
 string Card::getSuit() { return suit; }
 string Card::getRank() { return rank; }
