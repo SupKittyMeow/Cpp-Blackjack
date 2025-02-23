@@ -11,8 +11,10 @@ private:
   vector<Card> cards;
 
 public:
-  Deck(vector<Card> c);
+  Deck();
+  void createDeck();
   void shuffle();
+  void printAllCards();
   Card dealCard();
 };
 

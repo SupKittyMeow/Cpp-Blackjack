@@ -4,17 +4,14 @@
 
 using namespace std;
 
-string suit;
-string rank;
-int value;
-
-Card(string s, string r, int v) {
+Card::Card(string s, string r, int v) {
   suit = s;
   rank = r;
   value = v;
-};
+}
 
-string getSuit() { return suit; }
-string getRank() { return rank; }
-int getValue() { return value; }
+string Card::toString() { return rank + " of " + rank; }
 
+string Card::getSuit() { return suit; }
+string Card::getRank() { return rank; }
+int Card::getValue() { return value; }

@@ -15,6 +15,7 @@ public:
   string getSuit();
   string getRank();
   int getValue();
+  string toString();
 };
 
 #endif

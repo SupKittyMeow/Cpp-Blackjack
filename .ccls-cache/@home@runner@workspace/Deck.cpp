@@ -1,4 +1,3 @@
-
 #include "Deck.h"
 #include <iostream>
 #include <string>
@@ -6,7 +5,10 @@
 
 using namespace std;
 
-Deck::Deck(vector<Card> c) { cards = c; }
+Deck::Deck() {
+  cards = vector<Card>();
+  createDeck();
+}
 
 void Deck::createDeck() {
   cards.clear();
@@ -29,4 +31,11 @@ void Deck::shuffle() {
 Card Deck::dealCard() {
   // Implementation needed
   return cards[0]; // Temporary return statement
+}
+
+void Deck::printAllCards() {
+  for (Card card : cards) {
+    cout << card.toString() << " ";
+  }
+  cout << endl;
 }
