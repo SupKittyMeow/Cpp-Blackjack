@@ -17,8 +17,8 @@ void Deck::createDeck() {
   string ranks[14] = {"1", "2", "3",  "4",    "5",     "6",    "7",
                       "8", "9", "10", "Jack", "Queen", "King", "Ace"};
   int values[14] = {1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 10, 10, 10, 11};
-  for (int suit = 0; suit <= suits->length() - 1; suit++) {
-    for (int rank = 0; rank <= ranks->length() - 1; rank++) {
+  for (int suit = 0; suit < 4; suit++) {
+    for (int rank = 0; rank < 14; rank++) {
       cards.push_back(Card(suits[suit], ranks[rank], values[rank]));
     }
   }
