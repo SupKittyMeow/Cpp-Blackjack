@@ -28,8 +28,8 @@ void Deck::createDeck() {
 }
 
 void Deck::shuffle() {
-  srand(time(0));
-  auto rng = std::default_random_engine{};
+  static std::random_device rd;
+  static std::mt19937 rng(rd());
   std::shuffle(cards.begin(), cards.end(), rng);
 }
 
