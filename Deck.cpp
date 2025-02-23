@@ -35,7 +35,7 @@ Card Deck::dealCard() {
 
 void Deck::printAllCards() {
   for (Card card : cards) {
-    cout << card.toString() << " ";
+    cout << card.toString() << endl;
   }
   cout << endl;
 }
