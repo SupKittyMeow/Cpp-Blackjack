@@ -11,9 +11,9 @@ private:
   vector<Card> cards;
 
 public:
-  Deck(vector<Card> cards);
+  Deck(vector<Card> c);
   void shuffle();
-  Card deal();
+  Card dealCard();
 };
 
 #endif
