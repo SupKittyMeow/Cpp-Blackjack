@@ -12,12 +12,18 @@ BlackJackGame::BlackJackGame() {
 
 void BlackJackGame::gameLoop() {
   dealInitialCards();
-  dealerTurn();
-  cout << cout << "Your turn! ";
+  cout << "Dealer's first hand: ";
+  dealer.printDealerHand();
   playerTurn();
+  if (player.getHandValue() <= 21) {
+    dealerTurn();
+  }
+
   determineWinner();
   if (askToPlayAgain() == true) {
     gameLoop();
+  } else {
+    return;
   }
 }
 
@@ -35,11 +41,18 @@ void BlackJackGame::dealInitialCards() {
 }
 
 void BlackJackGame::playerTurn() {
-  cout << "Your hand: ";
-  player.printHand();
+  int handValue = player.getHandValue();
+  if (handValue > 21) {
+    cout << "\nYou're over with a value of " << handValue << "!" << endl;
+    return;
+  }
 
-  cout << endl << "Would you like to hit or stand" << endl;
-  cout << "Write hit or h to hit, and stand or s to stand." << endl;
+  cout << "\nYour hand: ";
+  player.printHand();
+  cout << "With a value of " << handValue << endl << endl;
+
+  cout << "Would you like to hit or stand?" << endl;
+  cout << "(Write hit or h to hit, and stand or s to stand)" << endl;
 
   string value;
   cin >> value;
@@ -49,11 +62,12 @@ void BlackJackGame::playerTurn() {
 
   if (value == "HIT" || value == "H") {
     player.addCard(deck.dealCard());
-    
+    playerTurn();
+    return;
   } else if (value == "STAND" || value == "S") {
     return;
   } else {
-    cout << "Please Write hit or h to hit, and stand or s to stand." << endl
+    cout << "\nPlease write hit or h to hit, and stand or s to stand." << endl
          << endl;
     playerTurn();
     return;
@@ -61,20 +75,20 @@ void BlackJackGame::playerTurn() {
 }
 
 void BlackJackGame::dealerTurn() {
-  cout << "Dealer's hand: ";
-  dealer.printHand(); // TODO: print dealer first
-                      // hand only or whatever
-  cout << "With value: " << dealer.getHandValue() << endl;
+  cout << "\nDealer's hand: ";
+  dealer.printHand();
+  cout << "With a value of " << dealer.getHandValue() << endl;
 
   while (dealer.getHandValue() < 17) {
     dealer.addCard(deck.dealCard());
     cout << "Dealer drew! New hand: ";
-    cout << "With value: " << dealer.getHandValue() << endl;
+    dealer.printHand();
+    cout << "With a value of " << dealer.getHandValue() << endl;
   }
 }
 
 void BlackJackGame::determineWinner() {
-  cout << "Game ended! Here's the results:" << endl;
+  cout << "\n-----\n\nGame ended! Here's the results:" << endl;
   cout << "Player hand: " << player.getHandValue() << endl;
   cout << "Dealer hand: " << dealer.getHandValue() << endl;
 
@@ -98,7 +112,7 @@ void BlackJackGame::determineWinner() {
 }
 
 bool BlackJackGame::askToPlayAgain() {
-  cout << "Would you like to play again?" << endl;
+  cout << "\n-----\n\nWould you like to play again?" << endl;
   cout << "Y or yes to play again, N or no to not." << endl;
   string value;
   cin >> value;

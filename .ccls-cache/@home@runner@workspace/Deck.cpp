@@ -34,7 +34,6 @@ void Deck::shuffle() {
 }
 
 Card Deck::dealCard() {
-  // TODO: check if deck is empty
   Card cardToDeal = cards[cards.size() - 1];
   cards.pop_back();
   return cardToDeal;

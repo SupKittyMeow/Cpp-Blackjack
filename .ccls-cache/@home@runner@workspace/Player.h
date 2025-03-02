@@ -16,6 +16,7 @@ public:
   bool isBusted();
   void addCard(const Card &card);
   void printHand();
+  void printDealerHand();
   void resetHand();
 };
 

@@ -35,4 +35,9 @@ void Player::printHand() {
   cout << printText << endl;
 };
 
+void Player::printDealerHand() {
+  string printText;
+  cout << heldCards[0].toString() << endl;
+};
+
 void Player::resetHand() { heldCards.clear(); };
