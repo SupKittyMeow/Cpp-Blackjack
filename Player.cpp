@@ -25,8 +25,14 @@ void Player::addCard(const Card &card) { heldCards.push_back(card); };
 void Player::printHand() {
   string printText;
   for (Card card : heldCards) {
-    printText += card.toString();
+    printText += card.toString() += ", ";
   }
+
+  printText.pop_back();
+  printText.pop_back();
+  printText.append(".");
+
+  cout << printText << endl;
 };
 
 void Player::resetHand() { heldCards.clear(); };
