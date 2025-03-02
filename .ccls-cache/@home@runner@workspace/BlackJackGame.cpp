@@ -12,7 +12,7 @@ BlackJackGame::BlackJackGame() {
 
 void BlackJackGame::gameLoop() {
   dealInitialCards();
-  cout << "Dealer's first hand: ";
+  cout << "\nDealer's first hand: ";
   dealer.printDealerHand();
   playerTurn();
   if (player.getHandValue() <= 21) {
@@ -47,7 +47,7 @@ void BlackJackGame::playerTurn() {
     return;
   }
 
-  cout << "\nYour hand: ";
+  cout << "Your hand: ";
   player.printHand();
   cout << "With a value of " << handValue << endl << endl;
 
@@ -61,7 +61,9 @@ void BlackJackGame::playerTurn() {
                  [](unsigned char c) { return std::toupper(c); });
 
   if (value == "HIT" || value == "H") {
-    player.addCard(deck.dealCard());
+    Card newCard = deck.dealCard();
+    player.addCard(newCard);
+    cout << "\nYou drew a " << newCard.toString() << endl;
     playerTurn();
     return;
   } else if (value == "STAND" || value == "S") {
