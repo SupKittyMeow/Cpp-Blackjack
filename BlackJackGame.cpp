@@ -14,7 +14,11 @@ void BlackJackGame::gameLoop() {
   dealInitialCards();
   cout << endl << "Your turn! ";
   playerTurn();
-  dealerTurn();
+  if (player.getHandValue() <= 21)
+  {
+    dealerTurn();
+  }
+  
   determineWinner();
   if (askToPlayAgain() == true) {
     gameLoop();
@@ -38,13 +42,18 @@ void BlackJackGame::dealInitialCards() {
 }
 
 void BlackJackGame::playerTurn() {
+  if (player.getHandValue() > 21)
+  {
+    return;
+  }
+  
   cout << "Your hand: ";
   player.printHand();
   cout << "With value: " << player.getHandValue();
 
   cout << endl << "Would you like to hit or stand" << endl;
-  cout << "Write hit or h to hit, and stand or s to stand." << endl; // TODO: Auto stop if you're busted
-
+  cout << "Write hit or h to hit, and stand or s to stand." << endl;
+  
   string value;
   cin >> value;
 
